@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GeoGebra 数学工具</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 只保留GeoGebra API引用 -->
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+</head>
+
+<body>
+    <nav id="main-nav">
+        <!-- 只保留函数绘图和3D图形功能 -->
+        <button id="graphing-btn" class="nav-button active">函数绘图</button>
+        <button id="3d-btn" class="nav-button">3D 图形</button>
+    </nav>
+    <!-- 计算器容器 -->
+    <div id="calculator-container">
+        <!-- GeoGebra 应用将注入这里 -->
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

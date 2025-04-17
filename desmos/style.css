@@ -1,0 +1,72 @@
+/* 基本重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 整体布局：使用 Flexbox 让导航栏在顶部，计算器占满剩余空间 */
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* 防止 body 出现滚动条 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 更现代的字体 */
+    background-color: #f0f0f0; /* 页面背景色 */
+    display: flex;
+    flex-direction: column; /* 垂直排列：导航栏在上，计算器在下 */
+}
+
+/* 导航栏样式 */
+#main-nav {
+    flex-shrink: 0; /* 防止导航栏在空间不足时被压缩 */
+    background-color: #333; /* 深色背景 */
+    padding: 8px 15px;
+    display: flex; /* 让按钮水平排列 */
+    gap: 10px; /* 按钮之间的间距 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 添加一点阴影 */
+    z-index: 10; /* 确保导航栏在最上层 */
+    overflow-x: auto; /* 允许在小屏幕上滚动 */
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* 移动端滚动优化 */
+}
+
+/* 导航按钮通用样式 */
+.nav-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #eee; /* 浅色文字 */
+    background-color: #555; /* 按钮背景 */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease; /* 平滑过渡效果 */
+    margin-right: 10px;
+    touch-action: manipulation; /* 优化移动端触摸体验 */
+}
+
+/* 鼠标悬停在按钮上时的样式 */
+.nav-button:hover {
+    background-color: #777;
+}
+
+/* 当前激活的按钮样式 */
+.nav-button.active {
+    background-color: #0078D4; /* 蓝色高亮 */
+    color: #fff; /* 白色文字 */
+    font-weight: bold;
+}
+
+/* 计算器容器样式 */
+#calculator-container {
+    flex-grow: 1; /* 占据所有剩余的垂直空间 */
+    width: 100%;
+    /* Desmos 会自己管理内部滚动，容器不需要 overflow */
+    /* background-color: #fff; */ /* 可以给容器一个背景色，虽然会被 Desmos 覆盖 */
+    position: relative; /* 有时 Desmos 内部元素定位需要 */
+}
+
+/* Desmos 计算器自身的样式调整 (如果需要覆盖) */
+/* .dcg-container 类是 Desmos 计算器的最外层 div */
+.dcg-container {
+   /* border: none !important; */ /* 可以尝试强制移除边框 */
+}

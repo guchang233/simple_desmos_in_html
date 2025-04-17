@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desmos 计算器</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.desmos.com/api/v1.10/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6&lang=zh-CN"></script>
+    <!-- GeoGebra API 引用保留，但实际加载将在点击时进行 -->
+    <script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+</head>
+
+<body>
+    <nav id="main-nav">
+        <button id="graphing-btn" class="nav-button active">图形计算器</button>
+        <button id="scientific-btn" class="nav-button">科学计算器</button>
+        <!-- 删除GGB函数绘图，添加图像计算机标签 -->
+        <button id="image-calc-btn" class="nav-button">图像计算机</button>
+        <!-- 添加更多 GeoGebra 相关标签页 -->
+        <button id="geometry-btn" class="nav-button">几何工具</button>
+        <button id="3d-btn" class="nav-button">3D 图形</button>
+        <button id="cas-btn" class="nav-button">代数系统</button>
+    </nav>
+    <!-- 计算器容器 -->
+    <div id="calculator-container">
+        <!-- Desmos 计算器将注入这里 -->
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

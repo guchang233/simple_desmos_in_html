@@ -25,6 +25,8 @@ html, body {
     gap: 10px; /* 按钮之间的间距 */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 添加一点阴影 */
     z-index: 10; /* 确保导航栏在最上层 */
+    overflow-x: auto; /* 允许在小屏幕上滚动 */
+    white-space: nowrap;
 }
 
 /* 导航按钮通用样式 */
@@ -37,10 +39,11 @@ html, body {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease, color 0.2s ease; /* 平滑过渡效果 */
+    margin-right: 10px;
 }
 
 /* 鼠标悬停在按钮上时的样式 */
-.nav-button:hover {
+.nav-button:hover:not(.active) {
     background-color: #777;
 }
 
@@ -55,13 +58,25 @@ html, body {
 #calculator-container {
     flex-grow: 1; /* 占据所有剩余的垂直空间 */
     width: 100%;
-    /* Desmos 会自己管理内部滚动，容器不需要 overflow */
-    /* background-color: #fff; */ /* 可以给容器一个背景色，虽然会被 Desmos 覆盖 */
+    height: calc(100vh - 60px);
     position: relative; /* 有时 Desmos 内部元素定位需要 */
 }
 
-/* Desmos 计算器自身的样式调整 (如果需要覆盖) */
-/* .dcg-container 类是 Desmos 计算器的最外层 div */
-.dcg-container {
-   /* border: none !important; */ /* 可以尝试强制移除边框 */
+/* 删除不需要的spinner动画相关代码 */
+
+/* 确保所有计算器容器正确显示 */
+#graphing-calculator,
+#scientific-calculator,
+#geogebra-container,
+#geometry-container,
+#3d-container,
+#cas-container {
+    width: 100%;
+    height: 100%;
+}
+
+/* 隐藏GeoGebra的错误信息弹窗 */
+.GeoGebraFrame .gwt-PopupPanel,
+.GeoGebraFrame .errorDialogPanel {
+    display: none !important;
 }
